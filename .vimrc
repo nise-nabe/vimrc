@@ -62,11 +62,10 @@ NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle "jceb/vim-hier"
 
-NeoBundle 'nise-nabe/unite-fugitive'
+NeoBundle 'nise-nabe/unite-yarm'
 NeoBundle 'pasela/unite-fuel'
 NeoBundle 'nobeans/unite-grails'
 NeoBundle 'kmnk/vim-unite-giti'
-NeoBundle 'basyura/unite-yarm'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'h1mesuke/unite-outline'
 
