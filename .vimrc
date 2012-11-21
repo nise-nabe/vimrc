@@ -20,11 +20,11 @@ NeoBundle 'taglist.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-ssh'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/unite-ssh'
 
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'mattn/gist-vim'
@@ -38,6 +38,8 @@ NeoBundle 'thinca/vim-localrc'
 NeoBundle 'thinca/vim-ref'
 
 "NeoBundle 'actionshrimp/vim-xpath'
+NeoBundle 'basyura/bitly.vim'
+NeoBundle 'basyura/TweetVim'
 "NeoBundle 'eagletmt/coqtop-vim'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'fuenor/qfixhowm'
@@ -48,15 +50,17 @@ NeoBundle 'groenewege/vim-less'
 "NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'skammer/vim-css-color'
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 "NeoBundle 'toritori0318/vim-redmine'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'yuroyoro/git-issue'
 NeoBundle 'yuratomo/w3m.vim'
 "Bundle 'sontek/rope-vim'
 NeoBundle 'lambdalisue/vim-python-virtualenv'
+NeoBundle "osyo-manga/shabadou.vim"
+NeoBundle "osyo-manga/vim-watchdogs"
+NeoBundle "jceb/vim-hier"
 
 NeoBundle 'nise-nabe/unite-fugitive'
 NeoBundle 'pasela/unite-fuel'
@@ -64,6 +68,7 @@ NeoBundle 'nobeans/unite-grails'
 NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'basyura/unite-yarm'
 NeoBundle 'osyo-manga/unite-quickfix'
+NeoBundle 'h1mesuke/unite-outline'
 
 NeoBundle 'vim-jp/vimdoc-ja'
 
@@ -108,22 +113,22 @@ noremap <Right> <nop>
 noremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:ref_open = 'vsplit'
-let g:ref_phpmanual_path = $HOME . '/.vim/man/phpmanual'
 
 set tags+=tags
 
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 "self setting
-if filereadable(expand('$HOME/.self.vimrc'))
-  source ~/.self.vimrc
-endif
+"if filereadable(expand('$HOME/.self.vimrc'))
+"  source $HOME/.self.vimrc
+"endif
 
 " unite.vim
 nnoremap <silent> <Leader>t :Unite file_rec<CR>**/<CR>
 nnoremap <silent> <Leader>b :Unite buffer<CR>
 nnoremap <silent> <Leader>h :Unite file_mru<CR>
 nnoremap <silent> <Leader>c :Unite command<CR>
+nnoremap <silent> f :Unite outline<CR>
 
 " fugitive 
 autocmd QuickFixCmdPost *grep* Unite quickfix
@@ -156,6 +161,11 @@ let g:quickrun_config['markdown'] = {
       \ 'cmdopt': '-s',
       \ 'outputter': 'buffer'
       \ }
+
+" pluign watchdogs.vim
+let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_CursorHold_enable = 1
+call watchdogs#setup(g:quickrun_config)
 
 " plugin calendar.vim
 let calendar_action = "QFixHowmCalendarDiary"
