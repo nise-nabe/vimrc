@@ -61,6 +61,7 @@ NeoBundle 'lambdalisue/vim-python-virtualenv'
 NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle "jceb/vim-hier"
+NeoBundle 'rhysd/accelerated-jk'
 
 NeoBundle 'nise-nabe/unite-yarm'
 NeoBundle 'pasela/unite-fuel'
@@ -149,9 +150,13 @@ let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 " plugin neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+imap <C-l>     <Plug>(neosnippet_expand_or_jump)
+smap <C-l>     <Plug>(neosnippet_expand_or_jump)
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 "plugin syntastic
-let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_open = 1
 
 " plugin quickrun
 let g:quickrun_config = {}
@@ -212,10 +217,19 @@ let g:neobundle_default_git_protocol='https'
 " unite-yarm
 "let g:unite_yarm_server_url = 'http://fuga.com'
 "let g:unite_yarm_access_key = 'hoge'
-nnoremap <silent> <Leader>uy :<C-u>Unite yarm<CR>
+"nnoremap <silent> <Leader>y :<C-u>Unite yarm<CR>
 
 " open-browser
 "let g:openbrowser_open_commands = ['']
 "let g:openbrowser_open_rules = {'': '{browser} {shellescape(uri)}'}
 
 " localrc
+"
+
+" vimshell
+let g:vimshell_disable_escape_highlight = 1
+
+" accelerated-jk
+let g:accelerated_jk_enable_deceleration = 1
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
