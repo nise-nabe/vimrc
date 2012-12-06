@@ -9,9 +9,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neobundle.vim'
 
-"Bundle 'FuzzyFinder'
-"Bundle 'L9'
-"Bundle 'ScmFrontEnd-former-name--MinSCM'
 NeoBundle 'sudo.vim'
 NeoBundle 'Align'
 NeoBundle 'Source-Explorer-srcexpl.vim'
@@ -37,31 +34,25 @@ NeoBundle 'thinca/vim-showtime'
 NeoBundle 'thinca/vim-localrc'
 NeoBundle 'thinca/vim-ref'
 
-"NeoBundle 'actionshrimp/vim-xpath'
 NeoBundle 'basyura/bitly.vim'
 NeoBundle 'basyura/TweetVim'
-"NeoBundle 'eagletmt/coqtop-vim'
-"NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'fuenor/qfixhowm'
-"NeoBundle 'kana/vim-smartchr'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
-"Bundle 'hallettj/jslint.vim'
-"NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'skammer/vim-css-color'
 "NeoBundle 'scrooloose/syntastic'
-"NeoBundle 'toritori0318/vim-redmine'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'yuratomo/w3m.vim'
-"Bundle 'sontek/rope-vim'
 NeoBundle 'lambdalisue/vim-python-virtualenv'
 NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle "jceb/vim-hier"
 NeoBundle 'rhysd/accelerated-jk'
+NeoBundle 'honza/snipmate-snippets'
+NeoBundle 'koron/minimap-vim'
 
 NeoBundle 'nise-nabe/unite-yarm'
 NeoBundle 'pasela/unite-fuel'
@@ -154,6 +145,7 @@ imap <C-l>     <Plug>(neosnippet_expand_or_jump)
 smap <C-l>     <Plug>(neosnippet_expand_or_jump)
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets, ~/.vim/autoload/neosnippet/snippets'
 
 "plugin syntastic
 "let g:syntastic_check_on_open = 1
