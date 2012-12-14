@@ -53,6 +53,7 @@ NeoBundle "jceb/vim-hier"
 NeoBundle 'rhysd/accelerated-jk'
 NeoBundle 'honza/snipmate-snippets'
 NeoBundle 'koron/minimap-vim'
+NeoBundle 'hsitz/VimOrganizer'
 
 NeoBundle 'nise-nabe/unite-yarm'
 NeoBundle 'pasela/unite-fuel'
@@ -115,10 +116,7 @@ set tags+=tags
 "endif
 
 " unite.vim
-nnoremap <silent> <Leader>t :Unite file_rec<CR>**/<CR>
-nnoremap <silent> <Leader>b :Unite buffer<CR>
-nnoremap <silent> <Leader>h :Unite file_mru<CR>
-nnoremap <silent> <Leader>c :Unite command<CR>
+nnoremap <silent> <Leader>b :Unite tab<CR>
 nnoremap <silent> f :Unite outline<CR>
 
 " fugitive 
@@ -159,9 +157,9 @@ let g:quickrun_config['markdown'] = {
       \ }
 
 " pluign watchdogs.vim
-let g:watchdogs_check_BufWritePost_enable = 1
-let g:watchdogs_check_CursorHold_enable = 1
-call watchdogs#setup(g:quickrun_config)
+"let g:watchdogs_check_BufWritePost_enable = 1
+"let g:watchdogs_check_CursorHold_enable = 1
+"call watchdogs#setup(g:quickrun_config)
 
 " plugin calendar.vim
 let calendar_action = "QFixHowmCalendarDiary"
