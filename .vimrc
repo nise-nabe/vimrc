@@ -21,48 +21,49 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/unite-ssh'
+NeoBundleLazy 'Shougo/unite-ssh'
 
-NeoBundle 'mattn/zencoding-vim'
+NeoBundleLazy 'mattn/zencoding-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/calendar-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/vdbi-vim'
+NeoBundle 'mattn/benchvimrc-vim'
 
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-showtime'
+NeoBundleLazy 'thinca/vim-showtime'
 NeoBundle 'thinca/vim-localrc'
-NeoBundle 'thinca/vim-ref'
+NeoBundleLazy 'thinca/vim-ref'
 
-NeoBundle 'basyura/bitly.vim'
-NeoBundle 'basyura/TweetVim'
+NeoBundleLazy 'basyura/bitly.vim'
+NeoBundleLazy 'basyura/TweetVim'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'gregsexton/gitv'
-NeoBundle 'groenewege/vim-less'
+NeoBundleLazy 'groenewege/vim-less'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'skammer/vim-css-color'
-"NeoBundle 'scrooloose/syntastic'
+NeoBundleLazy 'skammer/vim-css-color'
+NeoBundleLazy 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tyru/open-browser.vim'
+NeoBundleLazy 'tyru/open-browser.vim'
 NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'lambdalisue/vim-python-virtualenv'
+NeoBundleLazy 'lambdalisue/vim-python-virtualenv'
 NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle "jceb/vim-hier"
 NeoBundle 'rhysd/accelerated-jk'
-NeoBundle 'honza/snipmate-snippets'
-NeoBundle 'koron/minimap-vim'
+NeoBundleLazy 'honza/snipmate-snippets'
+NeoBundleLazy 'koron/minimap-vim'
 NeoBundle 'hsitz/VimOrganizer'
 
-NeoBundle 'nise-nabe/unite-yarm'
-NeoBundle 'pasela/unite-fuel'
-NeoBundle 'nobeans/unite-grails'
-NeoBundle 'kmnk/vim-unite-giti'
+NeoBundleLazy 'nise-nabe/unite-yarm'
+NeoBundleLazy 'pasela/unite-fuel'
+NeoBundleLazy 'nobeans/unite-grails'
+NeoBundleLazy 'kmnk/vim-unite-giti'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'h1mesuke/unite-outline'
 
-NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundleLazy 'vim-jp/vimdoc-ja'
 
 syntax on
 filetype plugin indent on
@@ -175,9 +176,6 @@ let QFixHowm_UserFileType = 'markdown'
 let QFixHowm_UserFileExt = 'mkd'
 let howm_filename = '%Y/%m/%T-%m-%d-%H%M%S.mkd'
 
-" go
-autocmd BufNewFile,BufRead *.go set syntax=go 
-
 " eclim
 "let g:EclimProjectTreeAutoOpen = 1
 "let g:EclimProjectTreeExpandPathOnOpen = 1
@@ -185,7 +183,7 @@ autocmd BufNewFile,BufRead *.go set syntax=go
 " source-exploere
 
 " torinity.vim
-nmap <F8> :TrinityToggleAll<CR>
+"nmap <F8> :TrinityToggleAll<CR>
 
 if has('gui_macvim')
   set guioptions-=T
@@ -196,12 +194,12 @@ endif
 
 " neobundle
 " Installation check.
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles: ' .
-        \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoBundleInstall" command.'
-  finish
-endif
+"if neobundle#exists_not_installed_bundles()
+"  echomsg 'Not installed bundles: ' .
+"        \ string(neobundle#get_not_installed_bundle_names())
+"  echomsg 'Please execute ":NeoBundleInstall" command.'
+"  finish
+"endif
 let g:neobundle_default_git_protocol='https'
 
 " unite-yarm
@@ -223,3 +221,5 @@ let g:vimshell_disable_escape_highlight = 1
 let g:accelerated_jk_enable_deceleration = 1
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
+
+" autocmd FileType yaml nmap ,e :execute '!ruby -ryaml -e "begin;YAML::load(open('."'"."%"."'".","."'"."r"."'".').read);rescue ArgumentError=>e;puts e;end"'<CR>
