@@ -55,6 +55,7 @@ NeoBundle 'rhysd/accelerated-jk'
 NeoBundleLazy 'honza/snipmate-snippets'
 NeoBundleLazy 'koron/minimap-vim'
 NeoBundle 'hsitz/VimOrganizer'
+NeoBundle 'teramako/instant-markdown-vim'
 
 NeoBundleLazy 'nise-nabe/unite-yarm'
 NeoBundleLazy 'pasela/unite-fuel'
