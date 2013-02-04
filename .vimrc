@@ -14,6 +14,7 @@ NeoBundle 'Align'
 NeoBundle 'Source-Explorer-srcexpl.vim'
 NeoBundle 'trinity.vim'
 NeoBundle 'taglist.vim'
+NeoBundle 'YankRing.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
@@ -47,6 +48,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundleLazy 'tyru/open-browser.vim'
 NeoBundle 'yuratomo/w3m.vim'
+NeoBundle 'yuratomo/gmail.vim'
 NeoBundleLazy 'lambdalisue/vim-python-virtualenv'
 NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
@@ -56,6 +58,7 @@ NeoBundleLazy 'honza/snipmate-snippets'
 NeoBundleLazy 'koron/minimap-vim'
 NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'teramako/instant-markdown-vim'
+NeoBundle 'HybridText'
 
 NeoBundleLazy 'nise-nabe/unite-yarm'
 NeoBundleLazy 'pasela/unite-fuel'
@@ -63,8 +66,13 @@ NeoBundleLazy 'nobeans/unite-grails'
 NeoBundleLazy 'kmnk/vim-unite-giti'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'tsukkee/unite-tag'
 
 NeoBundleLazy 'vim-jp/vimdoc-ja'
+
+if (isdirectory(expand('$GOROOT')))
+  NeoBundle 'go', {'type': 'nosync'}
+endif
 
 syntax on
 filetype plugin indent on
@@ -82,18 +90,22 @@ set hlsearch
 set number
 set cursorline
 set helplang=ja,en
+set splitbelow
 
 set statusline=%<%f\%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y%=%l,%c%V%8P\ %{fugitive#statusline()}
 
 set encoding=utf8
 set fileencodings=utf8,iso-2022-jp,sjis,euc-jp
 
+set directory=~/.vim/tmp
+set backupdir=~/.vim/tmp
+
 let mapleader = "\<Nul>"
 
 nnoremap <silent> t :<C-u>tabnew<CR>:tabmove<CR>
 " nnoremap <silent> X :XPathSearchPrompt<CR>
 
-map <silent>m g,j
+map <silent>m :split<CR>g,j
 
 inoremap jj <Esc>
 inoremap kk <Esc>
@@ -105,6 +117,8 @@ noremap <Left> <nop>
 noremap <Right> <nop>
 
 noremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+autocmd BufNewFile,BufRead *.go setlocal filetype=go
 
 let g:ref_open = 'vsplit'
 
@@ -198,7 +212,7 @@ endif
 "if neobundle#exists_not_installed_bundles()
 "  echomsg 'Not installed bundles: ' .
 "        \ string(neobundle#get_not_installed_bundle_names())
-"  echomsg 'Please execute ":NeoBundleInstall" command.'
+"  echomsg 'Please execute \":NeoBundleInstall\" command.'
 "  finish
 "endif
 let g:neobundle_default_git_protocol='https'
@@ -224,3 +238,12 @@ nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
 " autocmd FileType yaml nmap ,e :execute '!ruby -ryaml -e "begin;YAML::load(open('."'"."%"."'".","."'"."r"."'".').read);rescue ArgumentError=>e;puts e;end"'<CR>
+
+" RingYank.vim
+let g:yankring_history_dir = '~/.config/vim'
+
+" gmail.vim
+let g:gmail_user_name = 'nise.nabe@gmail.com'
+
+" HybridText
+autocmd BufEnter * if &filetype == "" | setlocal ft=hybrid | endif
