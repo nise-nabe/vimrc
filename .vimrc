@@ -1,6 +1,5 @@
 set nocompatible
 filetype off
-
 if has('vim_starting')
   set rtp+=~/.vim/bundle/neobundle.vim/
 endif
@@ -11,16 +10,16 @@ NeoBundle 'Shougo/neobundle.vim'
 
 NeoBundle 'sudo.vim'
 NeoBundle 'Align'
-NeoBundle 'Source-Explorer-srcexpl.vim'
-NeoBundle 'trinity.vim'
-NeoBundle 'taglist.vim'
+NeoBundleLazy 'Source-Explorer-srcexpl.vim'
+NeoBundleLazy 'trinity.vim'
+NeoBundleLazy 'taglist.vim'
 NeoBundle 'YankRing.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
+NeoBundleLazy 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet'
 NeoBundleLazy 'Shougo/unite-ssh'
 
@@ -38,6 +37,7 @@ NeoBundleLazy 'thinca/vim-ref'
 
 NeoBundleLazy 'basyura/bitly.vim'
 NeoBundleLazy 'basyura/TweetVim'
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'gregsexton/gitv'
 NeoBundleLazy 'groenewege/vim-less'
@@ -46,7 +46,6 @@ NeoBundleLazy 'skammer/vim-css-color'
 NeoBundleLazy 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundleLazy 'tyru/open-browser.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'yuratomo/gmail.vim'
 NeoBundleLazy 'lambdalisue/vim-python-virtualenv'
@@ -59,8 +58,13 @@ NeoBundleLazy 'koron/minimap-vim'
 NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'teramako/instant-markdown-vim'
 NeoBundle 'HybridText'
+NeoBundle 'tyru/simpletap.vim' " TAP for vim script
+NeoBundle 't9md/vim-unite-ack'
+NeoBundle 'rkitover/vimpager'
+NeoBundle 'itchyny/thumbnail.vim'
 
-NeoBundleLazy 'nise-nabe/unite-yarm'
+
+NeoBundle 'nise-nabe/unite-openpne'
 NeoBundleLazy 'pasela/unite-fuel'
 NeoBundleLazy 'nobeans/unite-grails'
 NeoBundleLazy 'kmnk/vim-unite-giti'
@@ -80,9 +84,6 @@ filetype plugin indent on
 set scrolloff=5
 set laststatus=2
 set textwidth=0
-set autoindent shiftwidth=2
-set smartindent shiftwidth=2
-set expandtab
 set clipboard=unnamed
 set list
 set listchars=tab:>_
@@ -104,6 +105,9 @@ let mapleader = "\<Nul>"
 
 nnoremap <silent> t :<C-u>tabnew<CR>:tabmove<CR>
 " nnoremap <silent> X :XPathSearchPrompt<CR>
+
+" タグジャンプ時に別タブで開く
+nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 
 map <silent>m :split<CR>g,j
 
@@ -166,6 +170,9 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets, ~
 
 " plugin quickrun
 let g:quickrun_config = {}
+let g:quickrun_config['*'] = {
+      \ 'runner' : 'vimproc'
+      \ }
 let g:quickrun_config['markdown'] = {
       \ 'type': 'markdown/pandoc',
       \ 'cmdopt': '-s',
@@ -173,9 +180,13 @@ let g:quickrun_config['markdown'] = {
       \ }
 
 " pluign watchdogs.vim
-"let g:watchdogs_check_BufWritePost_enable = 1
-"let g:watchdogs_check_CursorHold_enable = 1
-"call watchdogs#setup(g:quickrun_config)
+let g:watchdogs_check_BufWritePost_enables = {
+      \   "go" : 0,
+      \   "php": 1
+      \}
+let g:watchdogs_check_CursorHold_enables = {
+     \}
+call watchdogs#setup(g:quickrun_config)
 
 " plugin calendar.vim
 let calendar_action = "QFixHowmCalendarDiary"
@@ -246,4 +257,10 @@ let g:yankring_history_dir = '~/.config/vim'
 let g:gmail_user_name = 'nise.nabe@gmail.com'
 
 " HybridText
-autocmd BufEnter * if &filetype == "" | setlocal ft=hybrid | endif
+"autocmd BufEnter * if &filetype == "" | setlocal ft=hybrid | endif
+
+" gitv
+autocmd FileType git :setlocal foldlevel=99
+
+" vim-unite-ack
+let g:unite_source_ack_command = 'ack --nocolor --nogroup'
