@@ -14,12 +14,13 @@ NeoBundleLazy 'Source-Explorer-srcexpl.vim'
 NeoBundleLazy 'trinity.vim'
 NeoBundleLazy 'taglist.vim'
 NeoBundle 'YankRing.vim'
+NeoBundle 'DirDiff.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
-NeoBundleLazy 'Shougo/vimshell'
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet'
 NeoBundleLazy 'Shougo/unite-ssh'
 
@@ -36,7 +37,10 @@ NeoBundle 'thinca/vim-localrc'
 NeoBundleLazy 'thinca/vim-ref'
 
 NeoBundleLazy 'basyura/bitly.vim'
-NeoBundleLazy 'basyura/TweetVim'
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'basyura/twibill.vim'
+
+NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'gregsexton/gitv'
@@ -53,7 +57,7 @@ NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle "jceb/vim-hier"
 NeoBundle 'rhysd/accelerated-jk'
-NeoBundleLazy 'honza/snipmate-snippets'
+NeoBundleLazy 'honza/vim-snippets'
 NeoBundleLazy 'koron/minimap-vim'
 NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'teramako/instant-markdown-vim'
@@ -62,7 +66,7 @@ NeoBundle 'tyru/simpletap.vim' " TAP for vim script
 NeoBundle 't9md/vim-unite-ack'
 NeoBundle 'rkitover/vimpager'
 NeoBundle 'itchyny/thumbnail.vim'
-
+NeoBundle 'nsf/gocode'
 
 NeoBundle 'nise-nabe/unite-openpne'
 NeoBundleLazy 'pasela/unite-fuel'
@@ -73,6 +77,11 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
 
 NeoBundleLazy 'vim-jp/vimdoc-ja'
+
+
+if $GOROOT != ''
+	set rtp+=$GOROOT/misc/vim
+endif
 
 if (isdirectory(expand('$GOROOT')))
   NeoBundle 'go', {'type': 'nosync'}
@@ -102,6 +111,8 @@ set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 
 let mapleader = "\<Nul>"
+
+"autocmd FileType jsp,asp,php,xml,perl syntax sync minlines=500 maxlines=10000
 
 nnoremap <silent> t :<C-u>tabnew<CR>:tabmove<CR>
 " nnoremap <silent> X :XPathSearchPrompt<CR>
@@ -164,6 +175,10 @@ smap <C-l>     <Plug>(neosnippet_expand_or_jump)
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets, ~/.vim/autoload/neosnippet/snippets'
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+"let g:neocomplcache_omni_patterns.go = '\h\w%*.'
 
 "plugin syntastic
 "let g:syntastic_check_on_open = 1
