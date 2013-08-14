@@ -231,7 +231,8 @@ if has('gui_macvim')
   set guioptions-=T
 
   set transparency=10
-  set background=dark
+  " set background=dark
+  colorscheme koehler
 endif
 
 " neobundle
