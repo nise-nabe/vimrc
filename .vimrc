@@ -44,17 +44,17 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'gregsexton/gitv'
-NeoBundleLazy 'groenewege/vim-less'
+NeoBundle 'groenewege/vim-less'
 NeoBundle 'mileszs/ack.vim'
 NeoBundleLazy 'skammer/vim-css-color'
-NeoBundleLazy 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'yuratomo/gmail.vim'
 NeoBundleLazy 'lambdalisue/vim-python-virtualenv'
 NeoBundle "osyo-manga/shabadou.vim"
-NeoBundle "osyo-manga/vim-watchdogs"
+NeoBundleLazy "osyo-manga/vim-watchdogs"
 NeoBundle "jceb/vim-hier"
 NeoBundle 'rhysd/accelerated-jk'
 NeoBundleLazy 'honza/vim-snippets'
@@ -67,6 +67,7 @@ NeoBundle 't9md/vim-unite-ack'
 NeoBundle 'rkitover/vimpager'
 NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'nsf/gocode'
+NeoBundle 'adaszko/chbuf.vim'
 
 NeoBundle 'nise-nabe/unite-openpne'
 NeoBundleLazy 'pasela/unite-fuel'
@@ -201,7 +202,7 @@ let g:watchdogs_check_BufWritePost_enables = {
       \}
 let g:watchdogs_check_CursorHold_enables = {
      \}
-call watchdogs#setup(g:quickrun_config)
+
 
 " plugin calendar.vim
 let calendar_action = "QFixHowmCalendarDiary"
