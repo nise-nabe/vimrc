@@ -68,6 +68,8 @@ NeoBundle 'rkitover/vimpager'
 NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'nsf/gocode'
 NeoBundle 'adaszko/chbuf.vim'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'moznion/hateblo.vim', {'depends' : 'mattn/webapi-vim' }
 
 NeoBundle 'nise-nabe/unite-openpne'
 NeoBundleLazy 'pasela/unite-fuel'
@@ -76,6 +78,7 @@ NeoBundleLazy 'kmnk/vim-unite-giti'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'sgur/unite-git_grep'
 
 NeoBundleLazy 'vim-jp/vimdoc-ja'
 
@@ -84,9 +87,9 @@ if $GOROOT != ''
 	set rtp+=$GOROOT/misc/vim
 endif
 
-if (isdirectory(expand('$GOROOT')))
-  NeoBundle 'go', {'type': 'nosync'}
-endif
+"if (isdirectory(expand('$GOROOT')))
+"  NeoBundle 'go', {'type': 'nosync'}
+"endif
 
 syntax on
 filetype plugin indent on
@@ -151,7 +154,7 @@ set tags+=tags
 nnoremap <silent> <Leader>b :Unite tab<CR>
 nnoremap <silent> f :Unite outline<CR>
 
-" fugitive 
+" fugitive
 autocmd QuickFixCmdPost *grep* Unite quickfix
 
 " plugin gist.vim
@@ -281,3 +284,8 @@ autocmd FileType git :setlocal foldlevel=99
 
 " vim-unite-ack
 let g:unite_source_ack_command = 'ack --nocolor --nogroup'
+
+" lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
