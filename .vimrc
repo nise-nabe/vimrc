@@ -66,7 +66,7 @@ NeoBundle 'tyru/simpletap.vim' " TAP for vim script
 NeoBundle 't9md/vim-unite-ack'
 NeoBundle 'rkitover/vimpager'
 NeoBundle 'itchyny/thumbnail.vim'
-NeoBundle 'nsf/gocode'
+NeoBundle 'Blackrush/vim-gocode'
 NeoBundle 'adaszko/chbuf.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'moznion/hateblo.vim', {'depends' : 'mattn/webapi-vim' }
