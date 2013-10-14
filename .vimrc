@@ -30,6 +30,7 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'mattn/benchvimrc-vim'
+NeoBundle 'mattn/sonictemplate-vim'
 
 NeoBundle 'thinca/vim-quickrun'
 NeoBundleLazy 'thinca/vim-showtime'
@@ -82,14 +83,9 @@ NeoBundle 'sgur/unite-git_grep'
 
 NeoBundleLazy 'vim-jp/vimdoc-ja'
 
-
 if $GOROOT != ''
 	set rtp+=$GOROOT/misc/vim
 endif
-
-"if (isdirectory(expand('$GOROOT')))
-"  NeoBundle 'go', {'type': 'nosync'}
-"endif
 
 syntax on
 filetype plugin indent on
@@ -137,7 +133,9 @@ noremap <Right> <nop>
 
 noremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" golang
 autocmd BufNewFile,BufRead *.go setlocal filetype=go
+auto BufWritePre *.go Fmt
 
 let g:ref_open = 'vsplit'
 
