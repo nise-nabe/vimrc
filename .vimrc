@@ -69,7 +69,7 @@ NeoBundle 'tyru/simpletap.vim' " TAP for vim script
 NeoBundle 't9md/vim-unite-ack'
 NeoBundle 'rkitover/vimpager'
 NeoBundle 'itchyny/thumbnail.vim'
-NeoBundle 'Blackrush/vim-gocode'
+NeoBundleLazy 'Blackrush/vim-gocode'
 NeoBundle 'adaszko/chbuf.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'moznion/hateblo.vim', {'depends' : 'mattn/webapi-vim' }
@@ -137,7 +137,7 @@ noremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " golang
 autocmd BufNewFile,BufRead *.go setlocal filetype=go
-auto BufWritePre *.go Fmt
+" auto BufWritePre *.go Fmt
 
 let g:ref_open = 'vsplit'
 
