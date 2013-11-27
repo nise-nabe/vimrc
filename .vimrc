@@ -57,6 +57,7 @@ NeoBundle 'yuratomo/gmail.vim'
 NeoBundleLazy 'lambdalisue/vim-python-virtualenv'
 NeoBundle "osyo-manga/shabadou.vim"
 NeoBundleLazy "osyo-manga/vim-watchdogs"
+NeoBundle 'osyo-manga/vim-over'
 NeoBundle "jceb/vim-hier"
 NeoBundle 'rhysd/accelerated-jk'
 NeoBundleLazy 'honza/vim-snippets'
