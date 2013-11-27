@@ -13,7 +13,6 @@ NeoBundle 'Align'
 NeoBundleLazy 'Source-Explorer-srcexpl.vim'
 NeoBundleLazy 'trinity.vim'
 NeoBundleLazy 'taglist.vim'
-NeoBundle 'YankRing.vim'
 NeoBundle 'DirDiff.vim'
 NeoBundle 'SQLUtilities'
 
@@ -73,6 +72,8 @@ NeoBundleLazy 'Blackrush/vim-gocode'
 NeoBundle 'adaszko/chbuf.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'moznion/hateblo.vim', {'depends' : 'mattn/webapi-vim' }
+NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'kien/ctrlp.vim'
 
 NeoBundle 'nise-nabe/unite-openpne'
 NeoBundleLazy 'pasela/unite-fuel'
