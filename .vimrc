@@ -15,6 +15,7 @@ NeoBundleLazy 'trinity.vim'
 NeoBundleLazy 'taglist.vim'
 NeoBundle 'YankRing.vim'
 NeoBundle 'DirDiff.vim'
+NeoBundle 'SQLUtilities'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
