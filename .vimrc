@@ -87,8 +87,8 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'sgur/unite-git_grep'
 if has('unix') && system('uname')=~'Darwin'
-	Bundle 'rizzatti/funcoo.vim'
-	Bundle 'rizzatti/dash.vim'
+	NeoBundle 'rizzatti/funcoo.vim'
+	NeoBundle 'rizzatti/dash.vim'
 endif
 
 NeoBundleLazy 'vim-jp/vimdoc-ja'
