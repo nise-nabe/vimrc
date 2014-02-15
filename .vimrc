@@ -26,7 +26,7 @@ NeoBundleLazy 'Shougo/unite-ssh'
 
 NeoBundleLazy 'mattn/zencoding-vim'
 NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/calendar-vim'
+"NeoBundleLazy 'mattn/calendar-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/vdbi-vim'
 NeoBundle 'mattn/benchvimrc-vim'
@@ -41,9 +41,13 @@ NeoBundleLazy 'basyura/bitly.vim'
 NeoBundle 'basyura/TweetVim'
 NeoBundle 'basyura/twibill.vim'
 
+NeoBundle 'itchyny/calendar.vim'
+NeoBundle 'itchyny/thumbnail.vim'
+NeoBundle 'itchyny/lightline.vim'
+
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'fuenor/qfixhowm'
+"NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'mileszs/ack.vim'
@@ -67,13 +71,12 @@ NeoBundle 'HybridText'
 NeoBundle 'tyru/simpletap.vim' " TAP for vim script
 NeoBundle 't9md/vim-unite-ack'
 NeoBundle 'rkitover/vimpager'
-NeoBundle 'itchyny/thumbnail.vim'
 NeoBundleLazy 'Blackrush/vim-gocode'
 NeoBundle 'adaszko/chbuf.vim'
-NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'moznion/hateblo.vim', {'depends' : 'mattn/webapi-vim' }
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundleLazy 'tmsanrinsha/yaml.vim'
 
 NeoBundle 'nise-nabe/unite-openpne'
 NeoBundleLazy 'pasela/unite-fuel'
@@ -209,18 +212,18 @@ let g:watchdogs_check_CursorHold_enables = {
 
 
 " plugin calendar.vim
-let calendar_action = "QFixHowmCalendarDiary"
-let calendar_sign = "QFixHowmCalendarSign"
+" let calendar_action = "QFixHowmCalendarDiary"
+" let calendar_sign = "QFixHowmCalendarSign"
 
 " plugin qfixhowm
-let howm_dir = "~/.howm"
-let howm_fileencoding = "utf-8"
-let howm_fileformat = "unix"
-let QFixHowm_HowmMode = 0
-let QFixHowm_Title = '#'
-let QFixHowm_UserFileType = 'markdown'
-let QFixHowm_UserFileExt = 'mkd'
-let howm_filename = '%Y/%m/%T-%m-%d-%H%M%S.mkd'
+" let howm_dir = "~/.howm"
+" let howm_fileencoding = "utf-8"
+" let howm_fileformat = "unix"
+" let QFixHowm_HowmMode = 0
+" let QFixHowm_Title = '#'
+" let QFixHowm_UserFileType = 'markdown'
+" let QFixHowm_UserFileExt = 'mkd'
+" let howm_filename = '%Y/%m/%T-%m-%d-%H%M%S.mkd'
 
 " eclim
 "let g:EclimProjectTreeAutoOpen = 1
@@ -289,4 +292,10 @@ let g:unite_source_ack_command = 'ack --nocolor --nogroup'
 " lightline.vim
 let g:lightline = {
       \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'filename': '%f',
       \ }
+      \ }
+
+"autocmd FileType yaml setlocal foldmethod=syntax
+
