@@ -86,6 +86,10 @@ NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'sgur/unite-git_grep'
+if has('mac')
+	Bundle 'rizzatti/funcoo.vim'
+	Bundle 'rizzatti/dash.vim'
+endif
 
 NeoBundleLazy 'vim-jp/vimdoc-ja'
 
